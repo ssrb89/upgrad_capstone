@@ -1,0 +1,20 @@
+# dev-cluster.yaml
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: my-eks-201
+  region: us-east-1
+
+managedNodeGroups:
+  - name: ng-1-smruti
+    labels: { role: workers }
+    instanceType: t2.medium
+    desiredCapacity: 1
+    minSize: 0
+    maxSize: 5
+    privateNetworking: true
+    taints:
+      - key: feaster
+        value: "true"
+        effect: "NoSchedule"

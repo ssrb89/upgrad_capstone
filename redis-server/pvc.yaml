@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smruti-pvc
+  namespace: demo
+  labels:
+      type: smruti-pvc
+spec:
+  volumeName: smruti-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
